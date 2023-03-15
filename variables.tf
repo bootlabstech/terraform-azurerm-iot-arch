@@ -9,9 +9,10 @@ variable "location" {
 }
 
 # ebns
-variable "eventhub_NS_name" {
+variable "eventhub_namespace_name" {
   description = "The SKU Tier that should be used for the Public IP."
   type        = string
+  default = "IOT-namespace"
 
 }
 
@@ -22,6 +23,7 @@ variable "ns_sku" {
 variable "ns_capacity" {
   description = "Defines the Tier to use for this storage account."
   type        = string
+  default = "2"
 
 }
 
@@ -34,10 +36,12 @@ variable "eventhub_name" {
 variable "ehub_partition_count" {
   description = "Specifies the name of the App Service Plan component."
   type        = string
+  default = "2"
 }
 variable "ehub_message_retention" {
   description = "Specifies the plan's pricing tier."
   type        = string
+  default = "1"
 }
 # iothub
 variable "iothub_name" {
@@ -54,6 +58,8 @@ variable "iotsku_name" {
 variable "iotsku_capacity" {
   description = " Specifies the name of the Public IP."
   type        = string
+  default = "1"
+
 }
 
 # blob
@@ -73,14 +79,15 @@ variable "sa_account_replication_type" {
   type        = string
 
 }
-variable "sa_container_name" {
-  description = "Contains the name of the compute and memory capacity class of the DB instance"
-  type        = string
+# variable "sa_container_name" {
+#   description = "Contains the name of the compute and memory capacity class of the DB instance"
+#   type        = string
 
-}
+# }
 variable "container_access_type" {
   description = "Storage type associated with DB instance."
   type        = string
+  default = "private"
 
 }
 variable "blob_name" {
@@ -91,6 +98,7 @@ variable "blob_name" {
 variable "blob_type" {
   description = "Provisioned IOPS (I/O operations per second) value."
   type        = string
+  default = "Block"
 
 }
 variable "allow_nested_items_to_be_public" {
@@ -111,6 +119,7 @@ variable "public_network_access_enabled" {
 variable "server_version" {
   type        = string
   description = "name of the azurerm_app_service_plan"
+  default = "12.0"
 }
 
 variable "administrator_login" {
@@ -127,12 +136,13 @@ variable "administrator_login_password" {
 variable "connection_policy" {
   type        = string
   description = "Specifies the plan's pricing tier."
+  default = "Default"
 }
 variable "name" {
   type        = string
   description = "name of the resource group"
 }
-variable "serve_name" {
+variable "server_name" {
   type        = string
   description = "name of the azurerm_app_service_plan"
 }
@@ -145,16 +155,18 @@ variable "requested_service_objective_name" {
 variable "edition" {
   type        = string
   description = "(optional) describe your variable"
+  default = "Standard"
 }
 
 variable "create_mode" {
   type        = string
   description = "(optional) describe your variable"
+  default = "Default"
 }
-variable "server_name" {
-  type        = string
-  description = "(optional) describe your variable"
-}
+# 
+
+
+
 
 # variable "private_endpoint_subnet_id" {
 #   

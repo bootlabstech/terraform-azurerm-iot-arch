@@ -1,5 +1,5 @@
 resource "azurerm_eventhub_namespace" "eventhub" {
-   name                = var.eventhub_NS_name
+   name                = var.eventhub_namespace_name
    location            = var.location
    resource_group_name = var.resource_group_name
    sku                 = var.ns_sku
@@ -95,7 +95,7 @@ resource "azurerm_storage_account" "example" {
 
 
 resource "azurerm_storage_container" "example" {
-  name                  = var.sa_container_name
+  name                  = "{{.name}}-container"
   storage_account_name  = azurerm_storage_account.example.name
   container_access_type = var.container_access_type
 }
@@ -125,7 +125,7 @@ resource "azurerm_sql_database" "example" {
   name                             = var.name
   resource_group_name              = var.resource_group_name
   location                         = var.location
-  server_name                      = var.serve_name
+  server_name                      = azurerm_sql_server.example.name
   requested_service_objective_name = var.requested_service_objective_name
   create_mode                      = var.create_mode
   edition                          = var.edition
@@ -135,3 +135,5 @@ resource "azurerm_sql_database" "example" {
     azurerm_sql_server.example
   ]
 }
+
+
