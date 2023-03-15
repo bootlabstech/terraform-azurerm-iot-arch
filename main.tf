@@ -122,7 +122,7 @@ resource "azurerm_sql_server" "example" {
 }
 
 resource "azurerm_sql_database" "example" {
-  name                             = var.name
+  name                             = var.database_name
   resource_group_name              = var.resource_group_name
   location                         = var.location
   server_name                      = azurerm_sql_server.example.name

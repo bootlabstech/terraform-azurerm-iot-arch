@@ -138,7 +138,7 @@ variable "connection_policy" {
   description = "Specifies the plan's pricing tier."
   default = "Default"
 }
-variable "name" {
+variable "database_name" {
   type        = string
   description = "name of the resource group"
 }
